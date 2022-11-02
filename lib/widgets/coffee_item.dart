@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/details.dart';
+
 class CoffeeItem extends StatelessWidget {
   const CoffeeItem(
       {Key? key,
@@ -109,7 +111,10 @@ class CoffeeItem extends StatelessWidget {
           height: 15,
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const DetailsScreen()));
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 73, vertical: 14),
             decoration: const BoxDecoration(

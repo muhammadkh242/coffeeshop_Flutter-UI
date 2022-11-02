@@ -1,4 +1,5 @@
-import 'package:coffee/screens/home_screen.dart';
+import 'package:coffee/screens/details.dart';
+import 'package:coffee/screens/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,6 +36,13 @@ class MyApp extends StatelessWidget {
             fontSize: 17.0,
             color: Color(0xFF473D3A),
           ),
+          headline4: TextStyle(
+              fontFamily: 'nunito', fontSize: 16.0, color: Color(0xFFD4D3D2)),
+          headline5: TextStyle(
+              fontFamily: 'nunito',
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF716966)),
         ),
       ),
       home: const HomeScreen(),
