@@ -1,4 +1,5 @@
 import 'package:coffee/widgets/ingredient_item.dart';
+import 'package:coffee/widgets/order_sheet.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -208,19 +209,35 @@ class DetailsScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 15), child: Divider()),
           Padding(
             padding: const EdgeInsets.all(15),
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  color: Color(0xFF473D3A)),
-              child: const Center(
-                child: Text(
-                  "Make Order",
-                  style: TextStyle(
-                      fontFamily: 'nunito',
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+            child: InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40),
+                    ),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  context: context,
+                  builder: (context) => const OrderSheet(),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    color: Color(0xFF473D3A)),
+                child: const Center(
+                  child: Text(
+                    "Make Order",
+                    style: TextStyle(
+                        fontFamily: 'nunito',
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ),
