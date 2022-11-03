@@ -204,12 +204,23 @@ class DetailsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Positioned(
+                      top: (mediaQuery.size.height) * 0.15,
+                      right: -30,
+                      child: SizedBox(
+                        width: mediaQuery.size.width * 0.55,
+                        height: mediaQuery.size.height * 0.35,
+                        child: const Image(
+                          image: AssetImage("assets/images/pinkcup.png"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-          //Container(height: 80, color: Colors.blue,),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Divider(),
@@ -248,7 +259,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
