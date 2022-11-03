@@ -1,4 +1,3 @@
-import 'package:coffee/screens/details.dart';
 import 'package:coffee/screens/home.dart';
 import 'package:flutter/material.dart';
 

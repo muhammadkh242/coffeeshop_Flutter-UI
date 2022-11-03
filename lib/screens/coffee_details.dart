@@ -1,23 +1,50 @@
-import 'package:coffee/widgets/ingredient_item.dart';
-import 'package:coffee/widgets/order_sheet.dart';
 import 'package:flutter/material.dart';
 
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+import '../widgets/ingredient_item.dart';
+import '../widgets/order_sheet.dart';
+
+class CoffeeDetailsScreen extends StatelessWidget {
+  const CoffeeDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF3B2B7),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
+      body: CustomScrollView(
+        slivers: [
+/*
+          SliverAppBar(
+
+            stretch: true,
+            expandedHeight: 100,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Container(
+                margin: const EdgeInsets.only(left: 60),
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  "Caramel Macchiato",
+                  style: TextStyle(fontSize: 14),
+                ),
+              ),
+              background: Image.asset(
+                "assets/images/coffee.jpg",
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+*/
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
                 Stack(
                   children: [
                     Container(
@@ -27,7 +54,9 @@ class DetailsScreen extends StatelessWidget {
                           mediaQuery.viewPadding.bottom -
                           kToolbarHeight,
                       width: mediaQuery.size.width,
-                      decoration: const BoxDecoration(color: Color(0xFFF3B2B7)),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF3B2B7),
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -209,46 +238,46 @@ class DetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-          //Container(height: 80, color: Colors.blue,),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Divider(),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(40),
-                      topLeft: Radius.circular(40),
+/*
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(40),
+                        topLeft: Radius.circular(40),
+                      ),
                     ),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  context: context,
-                  builder: (context) => const OrderSheet(),
-                );
-              },
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    color: Color(0xFF473D3A)),
-                child: const Center(
-                  child: Text(
-                    "Make Order",
-                    style: TextStyle(
-                        fontFamily: 'nunito',
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    clipBehavior: Clip.antiAlias,
+                    context: context,
+                    builder: (context) => const OrderSheet(),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      color: Color(0xFF473D3A)),
+                  child: const Center(
+                    child: Text(
+                      "Make Order",
+                      style: TextStyle(
+                          fontFamily: 'nunito',
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
               ),
             ),
           )
+*/
         ],
       ),
     );

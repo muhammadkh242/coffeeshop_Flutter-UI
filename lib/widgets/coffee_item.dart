@@ -1,3 +1,4 @@
+import 'package:coffee/screens/coffee_details.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/details.dart';
